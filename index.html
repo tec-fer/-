@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tecfer Serralheria | Estruturas Metálicas em Serra-ES — 34 Anos de Tradição</title>
+  <meta name="description" content="Galpões, mezaninos, escadas e coberturas metálicas em Serra-ES. 34 anos de tradição, fabricação e instalação própria — sem terceiros. Solicite orçamento grátis pelo WhatsApp." />
+
+  <!-- ══ PRELOADS ══════════════════════════════════════════════════════════
+       Ordem importa: fontes críticas primeiro, depois imagem do hero.
+       Apenas os 3 pesos usados no above-the-fold (hero title + navbar).
+  ══════════════════════════════════════════════════════════════════════ -->
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Montserrat-Bold.woff2"      crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Montserrat-ExtraBold.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Montserrat-Regular.woff2"   crossorigin />
+  <link rel="preload" as="image" href="assets/img/BG-Desktop.webp" />
+
+  <style>
+    /* ══ Montserrat — apenas os 6 pesos realmente usados no site ══
+       Itálicas e pesos extremos (Thin/BlackItalic etc.) removidos —
+       economizam ~400 KiB de download e eliminam requisições desnecessárias.
+       font-display:swap  → texto visível imediatamente com fallback.
+    ══════════════════════════════════════════════════════════════ */
+    @font-face { font-family:'Montserrat'; src:url('assets/fonts/Montserrat-Regular.woff2')   format('woff2'); font-weight:400; font-style:normal;  font-display:swap; }
+    @font-face { font-family:'Montserrat'; src:url('assets/fonts/Montserrat-Medium.woff2')    format('woff2'); font-weight:500; font-style:normal;  font-display:swap; }
+    @font-face { font-family:'Montserrat'; src:url('assets/fonts/Montserrat-SemiBold.woff2')  format('woff2'); font-weight:600; font-style:normal;  font-display:swap; }
+    @font-face { font-family:'Montserrat'; src:url('assets/fonts/Montserrat-Bold.woff2')      format('woff2'); font-weight:700; font-style:normal;  font-display:swap; }
+    @font-face { font-family:'Montserrat'; src:url('assets/fonts/Montserrat-ExtraBold.woff2') format('woff2'); font-weight:800; font-style:normal;  font-display:swap; }
+    @font-face { font-family:'Montserrat'; src:url('assets/fonts/Montserrat-Black.woff2')     format('woff2'); font-weight:900; font-style:normal;  font-display:swap; }
+  </style>
+
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    /* ── Cores ────────────────────────────────── */
+    --verde:   #ADD60A;
+    --verde-d: #9DC209;
+    --verde-g: linear-gradient(100deg, #ADD60A, #C9FA04, #ADD60A, #C9FA04);
+    --escuro:  #111111;
+    --cinza:   #1E1E1E;
+    --claro:   #F4F3EC;
+    --branco:  #FFFFFF;
+
+    /* ── Tipografia — famílias ────────────────── */
+    --fT: 'Montserrat', sans-serif;
+    --fB: 'Montserrat', sans-serif;
+
+    /* ── Tipografia — tamanhos base ───────────── */
+    --t-h1-min:   48px;
+    --t-h1-max:   74px;
+    --t-h2-min:   28px;
+    --t-h2-max:   52px;
+    --t-h3-min:   18px;
+    --t-h3-max:   28px;
+    --t-body:     16px;
+    --t-small:    13px;
+    --t-label:    11px;
+
+    /* ── Tipografia — line-heights ────────────── */
+    --lh-heading:  1.08;
+    --lh-subhead:  1.25;
+    --lh-body:     1.8;
+    --lh-body-lg:  1.85;
+
+    /* ── Tipografia — espaçamentos ────────────── */
+    --ls-label:   3.5px;
+    --ls-btn:     2.5px;
+    --ls-nav:     2px;
+
+    /* ── Zona de silêncio ─────────────────────── */
+    --gap-label-above:  8px;
+    --gap-title-below: 24px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--fB); font-size: var(--t-body); line-height: var(--lh-body); background: var(--claro); color: var(--cinza); overflow-x: hidden; }
+  img  { max-width: 100%; display: block; }
+  a    { text-decoration: none; color: inherit; }
+  .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+  .verde {
+    background: linear-gradient(100deg, #ADD60A, #C9FA04);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ══ NAVBAR ══════════════════════════════════════════ */
+  #navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: var(--escuro); transition: box-shadow .3s;
+  }
+  #navbar.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,.55); }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 70px; padding: 0 32px;
+  }
+  .nav-logo img { height: 36px; width: auto; }
+  nav.nav-links ul { list-style: none; display: flex; gap: 28px; }
+  nav.nav-links ul li a {
+    font-family: var(--fT); font-size: 12px; font-weight: 700;
+    letter-spacing: var(--ls-nav); color: rgba(255,255,255,.75);
+    transition: color .2s; text-transform: uppercase;
+  }
+  nav.nav-links ul li a:hover { color: #ADD60A; }
+  .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+  .burger span { width: 24px; height: 2px; background: var(--branco); border-radius: 2px; transition: .3s; }
+  .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-mobile { display: none; flex-direction: column; background: var(--escuro); padding: 0 32px 24px; }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    font-family: var(--fT); font-size: 15px; font-weight: 700;
+    letter-spacing: 2px; color: rgba(255,255,255,.75); padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,.07); text-transform: uppercase;
+  }
+  .nav-mobile a:hover { color: #ADD60A; }
+
+  /* ══ BTN ══════════════════════════════════════════════ */
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--fT); font-size: 13px; font-weight: 700;
+    letter-spacing: var(--ls-btn); text-transform: uppercase;
+    padding: 15px 38px;
+    color: var(--escuro);
+    border: 2px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    background: var(--verde);
+    transition: background .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .btn:hover {
+    background: transparent;
+    color: var(--verde);
+    border-color: var(--verde);
+    box-shadow: inset 0 0 0 1px var(--verde);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--verde);
+    border: 2px solid var(--verde);
+    box-shadow: none;
+  }
+  .btn-outline:hover {
+    background: var(--verde);
+    color: var(--escuro);
+    border-color: var(--verde);
+    box-shadow: none;
+  }
+
+  /* ══ HERO ════════════════════════════════════════════ */
+  #hero {
+    background-color: var(--claro);
+    background-image: url('assets/img/BG-Desktop.webp');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    isolation: isolate;
+  }
+  .hero-top {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 80px 24px 52px; position: relative; z-index: 1;
+    background: transparent;
+  }
+  .hero-top::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center 85%, rgba(141,198,63,.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: var(--fT);
+    font-size: var(--t-label);
+    font-weight: 700;
+    letter-spacing: var(--ls-label);
+    color: var(--verde);
+    text-transform: uppercase;
+    margin-top: var(--gap-label-above);
+    margin-bottom: 18px;
+  }
+  .hero-title {
+    font-family: var(--fT);
+    font-size: clamp(var(--t-h1-min), 6vw, var(--t-h1-max));
+    font-weight: 700;
+    line-height: 1.04;
+    color: var(--escuro);
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+  .hero-title b { font-weight: 900; }
+  .hero-sub {
+    font-family: var(--fT);
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(26,26,26,.65);
+    margin-bottom: 28px;
+    letter-spacing: 0.2px;
+  }
+  .hero-micro {
+    font-family: var(--fT);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: rgba(26,26,26,.45);
+    text-transform: uppercase;
+    margin-top: 12px;
+  }
+  .hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 36px; }
+  .hero-tags span {
+    font-family: var(--fT); font-size: 11px; font-weight: 600; letter-spacing: 2px;
+    color: rgba(26,26,26,.60); padding: 5px 14px; border: 1px solid rgba(26,26,26,.47); border-radius: 2px;
+  }
+
+  /* ── Hero Grid ── */
+  .hero-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    flex: 1;
+    padding: 0 32px 0;
+    align-items: stretch;
+    overflow: visible;
+    position: relative;
+    z-index: 5;
+    margin-bottom: -130px;
+  }
+  .hero-cell {
+    position: relative;
+    overflow: visible;
+    cursor: pointer;
+    border-radius: 3px;
+    flex: 1;
+    min-height: 320px;
+    transition: flex 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    transform: skewX(-3.2deg);
+  }
+  .hero-cell:hover {
+    flex: 1.16;
+    z-index: 10;
+  }
+  .hero-cell-inner {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+  }
+  .hero-cell-inner::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 25%, rgba(0,0,0,.72) 100%);
+    transition: background .35s;
+    z-index: 1;
+  }
+  .hero-cell:hover .hero-cell-inner::after {
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.35) 100%);
+  }
+  .hero-cell img {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    display: block;
+    transform-origin: center center;
+  }
+  .hero-cell-label {
+    position: absolute;
+    top: 16px; right: 0;
+    z-index: 2;
+    font-family: var(--fT); font-size: 11px; font-weight: 800;
+    letter-spacing: 2.5px; color: var(--claro);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    padding: 12px 7px;
+    background: rgba(0,0,0,.55);
+    border-radius: 3px 0 0 3px;
+    transition: background .25s, color .25s;
+    text-transform: uppercase;
+  }
+  .hero-cell:hover .hero-cell-label {
+    background: var(--verde);
+    color: var(--escuro);
+  }
+
+  /* ══ SECTION COMMONS ════════════════════════════════ */
+  section { padding: 96px 0; }
+  .s-label {
+    display: block;
+    font-family: var(--fT);
+    font-size: var(--t-label);
+    font-weight: 700;
+    letter-spacing: var(--ls-label);
+    color: #ADD60A;
+    text-transform: uppercase;
+    margin-top: var(--gap-label-above);
+    margin-bottom: 14px;
+  }
+  .s-title {
+    font-family: var(--fT);
+    font-size: clamp(var(--t-h2-min), 4vw, var(--t-h2-max));
+    font-weight: 700;
+    line-height: var(--lh-heading);
+    margin-bottom: var(--gap-title-below);
+  }
+  .s-text {
+    font-size: var(--t-body);
+    line-height: var(--lh-body-lg);
+    color: #525252;
+  }
+
+  /* ══ PRODUTOS ════════════════════════════════════════ */
+  #produtos { background: var(--escuro); overflow: visible; padding-top: 176px; }
+  .produtos-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 52px; flex-wrap: wrap; }
+  #produtos .s-title { color: var(--claro); }
+  #produtos .s-text  { color: rgba(246,245,239,.55); }
+  .carousel-outer { overflow: hidden; border-radius: 3px; box-shadow: 0 8px 48px rgba(0,0,0,.13); }
+  .carousel-track { display: flex; transition: transform .52s cubic-bezier(.25,.46,.45,.94); will-change: transform; }
+  .c-slide { min-width: 100%; display: grid; grid-template-columns: 1fr 1fr; }
+  .c-img   { position: relative; height: 480px; overflow: hidden; }
+  .c-img img { width: 100%; height: 100%; object-fit: cover; }
+  .c-info  { background: var(--cinza); padding: 52px 44px; display: flex; flex-direction: column; justify-content: center; }
+  .c-eyebrow { font-family: var(--fT); font-size: var(--t-label); font-weight: 700; letter-spacing: var(--ls-label); color: var(--verde); text-transform: uppercase; margin-top: var(--gap-label-above); margin-bottom: 14px; }
+  .c-info h2 { font-family: var(--fT); font-size: clamp(22px,2.4vw,32px); font-weight: 700; line-height: var(--lh-subhead); color: var(--claro); margin-bottom: var(--gap-title-below); }
+  .c-info p  { font-size: var(--t-body); line-height: var(--lh-body-lg); color: rgba(246,245,239,.82); margin-bottom: 36px; }
+  .c-controls { display: flex; align-items: center; gap: 14px; margin-top: 4px; }
+  .c-btn {
+    width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.18);
+    border-radius: 2px; background: rgba(255,255,255,.06);
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background .2s, border-color .2s;
+  }
+  .c-btn:hover { background: var(--verde); border-color: var(--verde); }
+  .c-btn img { width: 14px; height: 14px; filter: invert(1); }
+  .c-btn:hover img { filter: invert(0); }
+  .c-dots { display: flex; gap: 6px; }
+  .c-dot  { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.22); cursor: pointer; transition: background .3s; border: none; padding: 0; }
+  .c-dot.on { background: var(--verde); }
+
+  /* ══ COMO FUNCIONA ══════════════════════════════════ */
+  #como-funciona {
+    background-color: var(--claro);
+    background-image: url('assets/img/BG-333.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  .cf-steps {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .cf-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 24px;
+  }
+  .cf-num {
+    font-family: var(--fT);
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2px;
+    background: linear-gradient(100deg, #ADD60A, #C9FA04);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+  }
+  .cf-title {
+    font-family: var(--fT);
+    font-size: clamp(15px, 1.3vw, 18px);
+    font-weight: 700;
+    color: var(--escuro);
+    margin-bottom: 12px;
+    line-height: var(--lh-subhead);
+  }
+  .cf-text {
+    font-size: 15px;
+    line-height: var(--lh-body);
+    color: #525252;
+  }
+  .cf-connector {
+    flex-shrink: 0;
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, #ADD60A, #C9FA04);
+    margin-top: 26px;
+    opacity: .5;
+  }
+  @media (max-width: 768px) {
+    .cf-steps { flex-direction: column; align-items: stretch; gap: 0; }
+    .cf-step { flex-direction: row; text-align: left; padding: 0 0 40px; align-items: flex-start; gap: 20px; }
+    .cf-num { font-size: 38px; flex-shrink: 0; margin-bottom: 0; }
+    .cf-connector { width: 2px; height: 32px; margin: 0 0 0 19px; }
+  }
+
+  /* ══ POR QUE A TECFER ═══════════════════════════════ */
+  #por-que {
+    background-color: var(--escuro);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  #por-que::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 520px; height: 520px;
+    background: radial-gradient(ellipse at center, rgba(173,214,10,.07) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  #por-que > .container { position: relative; z-index: 1; }
+  .pq-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.55fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .pq-intro { position: sticky; top: 100px; }
+  .pq-intro .s-label { color: var(--verde); }
+  .pq-intro .s-title { color: var(--claro); }
+  .pq-lead {
+    font-size: 15px;
+    line-height: var(--lh-body-lg);
+    color: rgba(246,245,239,.55);
+    margin-bottom: 36px;
+  }
+  .pq-stat-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+  .pq-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 16px;
+    border-left: 2px solid var(--verde);
+  }
+  .pq-stat strong {
+    font-family: var(--fT);
+    font-size: clamp(28px, 2.8vw, 38px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1;
+    background: linear-gradient(100deg, #ADD60A, #C9FA04);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .pq-stat span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(246,245,239,.40);
+  }
+  .pq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .pq-card {
+    background: var(--cinza);
+    border-radius: 4px;
+    padding: 32px 28px;
+    border: 1px solid rgba(255,255,255,.04);
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+  }
+  .pq-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ADD60A, #C9FA04);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s ease;
+  }
+  .pq-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(173,214,10,.18);
+    box-shadow: 0 12px 40px rgba(0,0,0,.35);
+  }
+  .pq-card:hover::after { transform: scaleX(1); }
+  .pq-icon {
+    width: 44px; height: 44px;
+    background: rgba(173,214,10,.08);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .pq-icon svg { width: 20px; height: 20px; stroke: #ADD60A; }
+  .pq-card-title {
+    font-family: var(--fT);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--claro);
+    margin-bottom: 10px;
+    letter-spacing: .2px;
+  }
+  .pq-card-text {
+    font-size: 14px;
+    line-height: var(--lh-body);
+    color: rgba(246,245,239,.52);
+  }
+  @media (max-width: 1024px) {
+    .pq-layout { grid-template-columns: 1fr; gap: 56px; }
+    .pq-intro { position: static; }
+    .pq-stat-row { flex-direction: row; flex-wrap: wrap; gap: 28px 48px; }
+  }
+  @media (max-width: 640px) {
+    .pq-grid { grid-template-columns: 1fr; }
+    .pq-stat-row { flex-direction: column; gap: 20px; }
+  }
+
+  /* ══ SOBRE NÓS ════════════════════════════════════════ */
+  #sobre-nos {
+    background-color: #FFFFFF;
+    background-image: url('assets/img/BG-333.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: var(--escuro);
+    position: relative;
+    isolation: isolate;
+  }
+  #sobre-nos > .container { position: relative; z-index: 1; }
+  #sobre-nos .s-text  { font-size: var(--t-body); line-height: var(--lh-body-lg); color: #525252; }
+  #sobre-nos .s-title { color: var(--escuro); }
+  #sobre-nos .s-label { color: var(--verde); }
+  .sobre-grid { display: flex; flex-direction: column; gap: 96px; }
+  .sobre-col-tecfer {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .sobre-col-tecfer .sobre-fotos { margin-top: 0; align-self: start; }
+  .sobre-col-tecfer .s-text { text-align: justify; }
+  .sobre-col-teodoro { display: grid; grid-template-columns: auto 1fr; gap: 0 64px; align-items: start; }
+  .sobre-col-teodoro-text { grid-column: 1 / -1; }
+  .sobre-col-teodoro .teodoro-inner { grid-column: 1 / -1; }
+  .sobre-col-tecfer .s-text { margin-bottom: 32px; }
+  .sobre-fotos { display: flex; gap: 10px; overflow: visible; margin-top: 28px; align-items: stretch; }
+  .sobre-foto {
+    position: relative; flex: 1; overflow: visible; border-radius: 3px;
+    cursor: pointer; transform: skewX(-3.2deg);
+    transition: flex 0.45s cubic-bezier(0.4,0,0.2,1); z-index: 1;
+  }
+  .sobre-foto:hover { flex: 1.16; z-index: 5; }
+  .sobre-foto-inner { position: relative; overflow: hidden; border-radius: 3px; width: 100%; }
+  .sobre-foto-inner::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,.65) 100%);
+    transition: background .35s; z-index: 1;
+  }
+  .sobre-foto:hover .sobre-foto-inner::after { background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.30) 100%); }
+  .sobre-foto img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+
+  /* ══ TEODORO ════════════════════════════════════════ */
+  .teodoro-inner {
+    display: grid;
+    grid-template-columns: 400px 60px 425px 60px 180px;
+    grid-template-rows: auto;
+    align-items: start;
+    margin-top: 28px;
+    overflow: visible;
+  }
+  .t-foto-col-left { grid-column: 1 / 2; position: relative; padding-bottom: 60px; }
+  .t-content { grid-column: 3 / 4; align-self: center; width: 100%; }
+  .t-foto-col-right { grid-column: 5 / 6; align-self: center; width: 180px; }
+  .t-foto-main { position: relative; overflow: visible; border-radius: 3px; cursor: default; transform: skewX(-3.2deg); z-index: 2; }
+  .t-foto-main-inner { position: relative; overflow: hidden; border-radius: 4px; }
+  .t-foto-main-inner::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 25%, rgba(0,0,0,.72) 100%);
+    pointer-events: none; z-index: 1; transition: background .35s;
+  }
+  .t-foto-main:hover .t-foto-main-inner::after { background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.35) 100%); }
+  .t-foto-main img { width: 100%; height: 400px; object-fit: cover; object-position: top center; display: block; transform-origin: center center; }
+  .t-foto-overlay {
+    position: absolute; top: 340px; right: -28px; width: 246px;
+    z-index: 10; transform: skewX(-3.2deg); overflow: visible; box-shadow: 0 8px 32px rgba(0,0,0,.40);
+  }
+  .t-foto-overlay-inner { position: relative; overflow: hidden; border-radius: 4px; }
+  .t-foto-overlay-inner::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 25%, rgba(0,0,0,.65) 100%);
+    pointer-events: none; z-index: 1; transition: background .35s;
+  }
+  .t-foto-overlay:hover .t-foto-overlay-inner::after { background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.30) 100%); }
+  .t-foto-overlay img { width: 100%; height: 131px; object-fit: cover; display: block; transform-origin: center center; }
+  .t-foto-side { position: relative; overflow: visible; border-radius: 3px; transform: skewX(-3.2deg); z-index: 1; }
+  .t-foto-side-inner { position: relative; overflow: hidden; border-radius: 4px; }
+  .t-foto-side-inner::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 25%, rgba(0,0,0,.72) 100%);
+    pointer-events: none; z-index: 1; transition: background .35s;
+  }
+  .t-foto-side:hover .t-foto-side-inner::after { background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.35) 100%); }
+  .t-foto-side img { width: 100%; height: 400px; object-fit: cover; object-position: center top; display: block; transform-origin: center center; }
+
+  @media (max-width: 1100px) {
+    .teodoro-inner { grid-template-columns: 26% 40px 1fr 40px 12%; }
+    .t-foto-col-right { display: none; }
+    .t-foto-main img { height: auto; min-height: unset; aspect-ratio: 3/4; }
+    .t-foto-overlay { width: 180px; right: -20px; top: 260px; }
+    .t-foto-overlay img { height: 96px; }
+  }
+  @media (max-width: 900px) {
+    .teodoro-inner { grid-template-columns: 38% 32px 1fr; }
+    .t-foto-col-right { display: none; }
+    .t-content { grid-column: 3 / 4; }
+    .t-foto-main img { height: auto; min-height: 300px; aspect-ratio: 3/4; }
+    .t-foto-overlay { width: 150px; top: auto; bottom: -40px; right: -16px; }
+    .t-foto-overlay img { height: 80px; }
+  }
+  @media (max-width: 640px) {
+    .sobre-fotos { overflow: hidden; }
+    .teodoro-inner { display: flex; flex-direction: column; gap: 24px; }
+    .t-foto-col-left { width: 100%; padding-bottom: 0; }
+    .t-foto-col-right { display: none; }
+    .t-foto-main { transform: none; }
+    .t-foto-main img { height: auto; min-height: unset; aspect-ratio: 3/4; width: 100%; }
+    .t-foto-overlay { display: none; }
+    .t-content { width: 100%; }
+    .t-content p { text-align: justify; }
+  }
+  .t-content p  { font-size: 14px; line-height: var(--lh-body); color: #525252; margin-bottom: 14px; text-align: justify; }
+  .t-content p.body-17 { font-size: 17px; line-height: 1.85; margin-bottom: 18px; text-align: justify; }
+  @media (max-width: 768px) { .t-content p.body-17 { font-size: 16px; line-height: 1.82; } }
+  @media (max-width: 480px) { .t-content p.body-17 { font-size: 15px; line-height: 1.78; } }
+  .t-content .adeus {
+    background: linear-gradient(100deg, #ADD60A, #C9FA04);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; color: transparent;
+    font-style: italic; font-weight: 600; margin-top: 18px;
+  }
+
+  /* Diretoria */
+  .diretoria-wrap { padding-top: 72px; margin-top: 72px; border-top: 1px solid rgba(0,0,0,.08); }
+  .diretoria-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
+  .dir-card {
+    background: #F8F8F4; border: 1px solid rgba(0,0,0,.07);
+    border-radius: 2px; padding: 32px 24px; text-align: center;
+    transition: border-color .3s, transform .3s;
+  }
+  .dir-card:hover { border-color: var(--verde); transform: translateY(-4px); }
+  .dir-avatar {
+    width: 60px; height: 60px; border-radius: 50%; background: var(--verde);
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+    font-family: var(--fT); font-size: 26px; font-weight: 900; color: var(--escuro);
+    overflow: hidden; flex-shrink: 0;
+  }
+  .dir-avatar img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; object-position: center top; display: block; }
+  @media (max-width: 480px) { .dir-avatar, .dir-avatar img { width: 54px; height: 54px; } }
+  .dir-card h3 { font-family: var(--fT); font-size: 18px; font-weight: 700; color: var(--escuro); margin-bottom: 6px; }
+  .dir-card p  { font-size: var(--t-label); font-weight: 600; letter-spacing: 2px; color: rgba(30,30,30,.45); text-transform: uppercase; }
+
+  /* ══ MISSÃO ══════════════════════════════════════════ */
+  #missao {
+    background-color: var(--cinza);
+    color: var(--claro);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  #missao::before {
+    content: ''; position: absolute; right: -120px; top: -120px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(141,198,63,.07) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+  #missao > .container { position: relative; z-index: 1; }
+  .missao-grid    { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .missao-stmt    { font-family: var(--fT); font-size: clamp(var(--t-h3-min),2.6vw,var(--t-h3-max)); font-weight: 600; line-height: var(--lh-subhead); color: var(--claro); }
+  .missao-big     { font-family: var(--fT); font-size: clamp(56px,8vw,104px); font-weight: 900; letter-spacing: -2px; color: var(--verde); line-height: 1; display: block; margin: 8px 0; }
+  .missao-divider { width: 56px; height: 2px; background: var(--verde); margin: 28px 0; }
+  .dif-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .dif-card { padding: 24px; border: 1px solid rgba(255,255,255,.08); border-radius: 2px; transition: border-color .3s; }
+  .dif-card:hover { border-color: var(--verde); }
+  .dif-card.full  { grid-column: span 2; }
+  .dif-num { font-family: var(--fT); font-size: clamp(32px,3.5vw,42px); font-weight: 900; color: rgba(141,198,63,.20); line-height: 1; margin-bottom: 10px; }
+  .dif-card h4 { font-family: var(--fT); font-size: 13px; font-weight: 700; color: var(--verde); letter-spacing: 1px; margin-bottom: 8px; }
+  .dif-card p  { font-size: 15px; line-height: var(--lh-body); color: rgba(246,245,239,.78); }
+  .missao-logo { display: flex; justify-content: center; margin-top: 28px; }
+  .missao-logo img { height: 56px; width: auto; opacity: .55; filter: brightness(3); }
+
+  /* ══ DEPOIMENTOS ════════════════════════════════════ */
+  #depoimentos {
+    background-color: var(--claro);
+    background-image: url('assets/img/BG-333.svg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    position: relative;
+    isolation: isolate;
+  }
+  #depoimentos > .container { position: relative; z-index: 1; }
+  .depo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin: 48px 0; }
+  .depo-card {
+    background: var(--branco); border-radius: 3px; padding: 32px 28px;
+    border-left: 3px solid var(--verde); box-shadow: 0 2px 18px rgba(0,0,0,.06);
+    transition: transform .3s, box-shadow .3s;
+  }
+  .depo-card:hover { transform: translateY(-5px); box-shadow: 0 10px 36px rgba(0,0,0,.12); }
+  .depo-stars  { color: var(--verde); font-size: 13px; letter-spacing: 2px; margin-bottom: 16px; }
+  .depo-text   { font-size: 15px; line-height: var(--lh-body-lg); color: #4A4A4A; font-style: italic; margin-bottom: 20px; }
+  .depo-author { font-family: var(--fT); font-size: 14px; font-weight: 700; letter-spacing: 1.5px; color: var(--escuro); }
+  .depo-role   { font-size: 11px; color: var(--verde); font-weight: 600; margin-top: 2px; }
+
+  /* CTA Banner */
+  .cta-banner {
+    background: var(--escuro); border-radius: 3px; padding: 48px 44px;
+    margin: 0 0 64px; display: flex; align-items: center; justify-content: space-between;
+    gap: 32px; flex-wrap: wrap;
+  }
+  .cta-banner p { font-size: var(--t-body); line-height: var(--lh-body); color: rgba(246,245,239,.72); max-width: 520px; }
+  .cta-banner p span { color: var(--verde); font-weight: 600; }
+
+  /* Clientes */
+  .clientes-header { text-align: center; margin-bottom: 36px; }
+  .clientes-header h3 { font-family: var(--fT); font-size: clamp(22px,2.5vw,32px); font-weight: 700; margin-bottom: var(--gap-title-below); }
+  .clientes-scroll { overflow: hidden; position: relative; padding: 8px 0; }
+  .clientes-scroll::before,
+  .clientes-scroll::after { content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; pointer-events: none; }
+  .clientes-scroll::before { left: 0;  background: linear-gradient(to right, var(--claro), transparent); }
+  .clientes-scroll::after  { right: 0; background: linear-gradient(to left,  var(--claro), transparent); }
+  .clientes-track { display: flex; gap: 48px; width: max-content; animation: scrollC 28s linear infinite; }
+  .clientes-track:hover { animation-play-state: paused; }
+  @keyframes scrollC { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .cl-logo { height: 44px; display: flex; align-items: center; filter: grayscale(1) opacity(.4); transition: filter .3s; }
+  .cl-logo:hover { filter: grayscale(0) opacity(1); }
+  .cl-logo img { height: 100%; width: auto; object-fit: contain; }
+
+  /* ══ FAQ ════════════════════════════════════════════ */
+  #faq { background-color: var(--escuro); color: var(--claro); position: relative; isolation: isolate; }
+  #faq > .container { position: relative; z-index: 1; }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1.7fr; gap: 80px; align-items: start; }
+  .faq-aside p { font-size: var(--t-body); line-height: var(--lh-body); color: rgba(246,245,239,.82); margin: 16px 0 32px; }
+  .faq-list { display: flex; flex-direction: column; }
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,.07); }
+  .faq-btn  {
+    width: 100%; background: none; border: none; text-align: left;
+    padding: 20px 0; cursor: pointer; display: flex; justify-content: space-between;
+    align-items: center; gap: 16px; color: var(--claro);
+  }
+  .faq-btn span { font-family: var(--fT); font-size: clamp(15px,1.4vw,18px); font-weight: 600; letter-spacing: .3px; line-height: var(--lh-subhead); }
+  .faq-icon {
+    flex-shrink: 0; width: 22px; height: 22px; border: 1px solid rgba(255,255,255,.2);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    transition: background .3s, border-color .3s;
+  }
+  .faq-icon svg { transition: transform .3s; }
+  .faq-item.open .faq-icon { background: var(--verde); border-color: var(--verde); }
+  .faq-item.open .faq-icon svg { transform: rotate(90deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height .42s ease; }
+  .faq-item.open .faq-answer { max-height: 280px; }
+  .faq-answer p { font-size: var(--t-body); line-height: var(--lh-body-lg); color: rgba(246,245,239,.82); padding-bottom: 20px; }
+
+  /* ══ CONTATO ════════════════════════════════════════ */
+  #contato {
+    background-color: var(--claro);
+    background-image: url('assets/img/BG-8.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    isolation: isolate;
+  }
+  #contato > .container { position: relative; z-index: 1; }
+  .contato-intro { text-align: center; margin-bottom: 60px; }
+  .contato-intro .s-text { margin: 0 auto; max-width: 560px; }
+  .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .c-item { display: flex; gap: 16px; margin-bottom: 28px; align-items: flex-start; }
+  .c-icon {
+    width: 44px; height: 44px; background: var(--escuro); border-radius: 3px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .c-icon img { width: 20px; height: 20px; filter: invert(1); opacity: .8; }
+  .c-text { font-size: var(--t-body); line-height: var(--lh-body); color: #4A4A4A; }
+  .c-text strong { display: block; font-family: var(--fT); font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: var(--cinza); text-transform: uppercase; margin-bottom: 4px; }
+  .c-text a { color: var(--cinza); transition: color .2s; }
+  .c-text a:hover { color: var(--verde); }
+  .map-box { border-radius: 4px; overflow: hidden; height: 380px; box-shadow: 0 4px 24px rgba(0,0,0,.1); }
+  .map-box iframe { width: 100%; height: 100%; border: 0; }
+
+  /* ══ FOOTER ══════════════════════════════════════════ */
+  footer { background: #111; color: rgba(255,255,255,.45); padding: 56px 0 32px; }
+  .footer-top {
+    display: grid; grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 52px; padding-bottom: 44px;
+    border-bottom: 1px solid rgba(255,255,255,.07); margin-bottom: 28px;
+  }
+  .footer-logo { margin-bottom: 16px; }
+  .footer-logo img { height: 32px; width: auto; }
+  .footer-desc { font-size: 14px; line-height: var(--lh-body); margin-bottom: 24px; }
+  .footer-col h4 { font-family: var(--fT); font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--branco); margin-bottom: 18px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a { font-size: 14px; color: rgba(255,255,255,.45); transition: color .2s; }
+  .footer-col ul li a:hover { color: var(--verde); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .footer-copy { font-size: 12px; }
+  .footer-copy a { color: var(--verde); }
+
+  /* ══ SCROLL REVEAL ══════════════════════════════════ */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; will-change: opacity, transform; }
+  .reveal.active { opacity: 1; transform: translateY(0); }
+  .reveal.in     { opacity: 1; transform: translateY(0); }
+  .d1, .reveal-delay-1 { transition-delay: .1s; }
+  .d2, .reveal-delay-2 { transition-delay: .2s; }
+  .d3, .reveal-delay-3 { transition-delay: .3s; }
+  .d4, .reveal-delay-4 { transition-delay: .4s; }
+
+  /* ══ RESPONSIVE ══════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    .hero-grid { gap: 8px; }
+    .sobre-grid { grid-template-columns: 1fr; gap: 56px; }
+    .sobre-col-tecfer { display: flex; flex-direction: column; gap: 0; }
+    .sobre-col-tecfer .sobre-fotos { order: 10; margin-top: 32px; margin-bottom: 0; width: 100%; min-height: 260px; }
+    .sobre-col-tecfer .s-label { order: 0; }
+    .sobre-col-tecfer .s-title { order: 1; }
+    .sobre-col-tecfer .s-text  { order: 2; text-align: justify; margin-bottom: 0; }
+    .sobre-col-tecfer .btn     { order: 3; }
+    .teodoro-grid { grid-template-columns: 200px 1fr; }
+    .t-foto-side { display: none; }
+    .t-foto-col-right { display: none; }
+    .teodoro-inner { grid-template-columns: 160px 1fr; gap: 24px; }
+    .missao-grid { grid-template-columns: 1fr; gap: 56px; }
+    .faq-grid { grid-template-columns: 1fr; gap: 48px; }
+    .contato-grid { grid-template-columns: 1fr; gap: 48px; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .diretoria-grid { grid-template-columns: 1fr; max-width: 380px; }
+  }
+  @media (max-width: 768px) {
+    section { padding: 64px 0; }
+    nav.nav-links { display: none; } .burger { display: flex; }
+    .hero-grid { gap: 6px; flex-wrap: wrap; }
+    .hero-cell { flex: 1 1 calc(33% - 6px); min-width: 0; }
+    .c-slide { grid-template-columns: 1fr; } .c-img { height: 220px; } .c-info { padding: 32px 24px; }
+    .depo-grid { grid-template-columns: 1fr; }
+    .teodoro-grid { grid-template-columns: 1fr; }
+    .t-foto-main      { transform: none; }
+    .t-foto-main img  { height: auto; min-height: unset; aspect-ratio: 3/4; }
+    .teodoro-inner    { grid-template-columns: 1fr; }
+    .cta-banner { flex-direction: column; text-align: center; }
+    .footer-top { grid-template-columns: 1fr; }
+    .dif-grid { grid-template-columns: 1fr; } .dif-card.full { grid-column: span 1; }
+    .diretoria-grid { grid-template-columns: 1fr; max-width: 100%; }
+  }
+  @media (max-width: 480px) {
+    .hero-cell-label { font-size: 10px; letter-spacing: 1px; padding: 10px 4px; }
+    .hero-title { font-size: 32px; line-height: 1.08; }
+    body { font-size: 14px; line-height: 1.8; }
+    .s-text { font-size: 14px; line-height: 1.8; }
+    .s-text.body-17, .body-17 { font-size: 15px; line-height: 1.78; }
+  }
+  .body-17 { font-size: 17px; line-height: 1.85; font-weight: 400; letter-spacing: 0.01em; }
+  @media (max-width: 768px) { .body-17 { font-size: 16px; line-height: 1.82; } }
+  @media (max-width: 480px) { .body-17 { font-size: 15px; line-height: 1.78; } }
+
+  /* ══ BOTÃO GOOGLE REVIEWS ══════════════════════════════ */
+  .btn-google-reviews {
+    display: inline-flex; align-items: center; gap: 8px; padding: 13px 20px;
+    background: #fff; color: #3c3c3c; border: none; border-radius: 2px;
+    font-family: var(--fT); font-size: 12px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; white-space: nowrap;
+    transition: box-shadow .2s ease, transform .2s ease; box-shadow: 0 1px 6px rgba(0,0,0,.18);
+  }
+  .btn-google-reviews:hover { box-shadow: 0 3px 14px rgba(0,0,0,.28); transform: translateY(-1px); }
+  .gr-stars-mini { color: #fbbc04; font-size: 13px; letter-spacing: 1px; }
+  .gr-score-mini { font-weight: 900; font-size: 13px; color: #3c3c3c; }
+
+  /* ══ MODAL OVERLAY ══════════════════════════════════════ */
+  .gr-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,.55); backdrop-filter: blur(3px);
+    z-index: 9000; display: flex; align-items: center; justify-content: center; padding: 20px;
+    opacity: 0; pointer-events: none; transition: opacity .25s ease;
+  }
+  .gr-overlay.open { opacity: 1; pointer-events: all; }
+  .gr-modal {
+    background: #202124; color: #e8eaed; border-radius: 8px; width: 100%; max-width: 520px;
+    max-height: 88vh; overflow-y: auto; box-shadow: 0 8px 48px rgba(0,0,0,.6);
+    transform: translateY(20px) scale(.97); transition: transform .28s cubic-bezier(.4,0,.2,1);
+  }
+  .gr-overlay.open .gr-modal { transform: translateY(0) scale(1); }
+  .gr-modal::-webkit-scrollbar { width: 5px; }
+  .gr-modal::-webkit-scrollbar-track { background: transparent; }
+  .gr-modal::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 4px; }
+  .gr-header { display: flex; align-items: flex-start; justify-content: space-between; padding: 24px 24px 16px; gap: 12px; }
+  .gr-header-left { display: flex; align-items: flex-start; gap: 14px; }
+  .gr-logo { flex-shrink: 0; margin-top: 2px; }
+  .gr-business { font-family: var(--fT); font-size: 15px; font-weight: 700; color: #e8eaed; margin: 0 0 3px; }
+  .gr-address { font-size: 12px; color: rgba(232,234,237,.55); margin: 0; }
+  .gr-close { background: none; border: none; color: rgba(232,234,237,.55); font-size: 18px; cursor: pointer; padding: 0 0 0 8px; line-height: 1; flex-shrink: 0; transition: color .2s; }
+  .gr-close:hover { color: #e8eaed; }
+  .gr-score-block { display: flex; align-items: center; gap: 16px; padding: 0 24px 20px; flex-wrap: wrap; }
+  .gr-big-score { font-family: var(--fT); font-size: 52px; font-weight: 300; color: #e8eaed; line-height: 1; }
+  .gr-stars-full { color: #fbbc04; font-size: 22px; letter-spacing: 2px; margin-bottom: 4px; }
+  .gr-total { font-size: 13px; color: rgba(232,234,237,.6); margin: 0; }
+  .gr-avaliar-btn {
+    margin-left: auto; display: inline-flex; align-items: center; padding: 8px 18px;
+    border: 1px solid rgba(232,234,237,.3); border-radius: 20px;
+    font-family: var(--fT); font-size: 13px; font-weight: 600; color: #8ab4f8;
+    transition: background .2s, border-color .2s; white-space: nowrap;
+  }
+  .gr-avaliar-btn:hover { background: rgba(138,180,248,.1); border-color: #8ab4f8; }
+  .gr-divider { height: 1px; background: rgba(232,234,237,.1); margin: 0 24px; }
+  .gr-reviews-list { padding: 8px 24px 16px; }
+  .gr-review { padding: 18px 0; border-bottom: 1px solid rgba(232,234,237,.08); }
+  .gr-review:last-child { border-bottom: none; }
+  .gr-reviewer-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .gr-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--fT); font-size: 16px; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .gr-reviewer { font-family: var(--fT); font-size: 14px; font-weight: 600; color: #e8eaed; margin: 0 0 2px; }
+  .gr-meta { font-size: 11px; color: rgba(232,234,237,.45); margin: 0; }
+  .gr-review-stars-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .gr-stars { color: #fbbc04; font-size: 15px; letter-spacing: 1px; }
+  .gr-when { font-size: 12px; color: rgba(232,234,237,.45); }
+  .gr-review-text { font-size: 14px; line-height: 1.7; color: rgba(232,234,237,.82); margin: 0; }
+  .gr-footer { padding: 12px 24px 24px; border-top: 1px solid rgba(232,234,237,.1); }
+  .gr-ver-todos { display: inline-flex; align-items: center; gap: 6px; font-family: var(--fT); font-size: 13px; font-weight: 600; color: #8ab4f8; transition: gap .2s; }
+  .gr-ver-todos:hover { gap: 10px; }
+  @media (max-width: 480px) {
+    .gr-modal { max-height: 92vh; border-radius: 12px 12px 0 0; }
+    .gr-overlay { align-items: flex-end; padding: 0; }
+    .gr-big-score { font-size: 40px; }
+    .gr-avaliar-btn { margin-left: 0; }
+  }
+
+  /* ══ GOOGLE BADGE ════════════════════════════════════ */
+  .google-badge {
+    display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px 5px 8px;
+    border: 1px solid rgba(26,26,26,.18); border-radius: 2px;
+    font-family: var(--fT); font-weight: 600; letter-spacing: 1px;
+    color: rgba(26,26,26,.55); vertical-align: middle;
+    font-size: clamp(11px, 1vw, 13px); line-height: 1;
+  }
+  .google-badge--light { border-color: rgba(255,255,255,.2); color: rgba(255,255,255,.5); }
+  .faq-aside { font-size: 14px; line-height: 1.8; color: rgba(246,245,239,.45); margin: 16px 0 32px; }
+  </style>
+
+  <!-- Schema.org — LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Tecfer Serralheria — Esquadrias Metálicas",
+    "description": "Fabricação e instalação de estruturas metálicas em Serra-ES: galpões, mezaninos, escadas, portões e coberturas. 34 anos de tradição.",
+    "url": "https://tecfer.com.br",
+    "telephone": "+55-27-98851-2252",
+    "taxID": "59.159.846/0001-11",
+    "foundingDate": "1990",
+    "areaServed": { "@type": "State", "name": "Espírito Santo" },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av Porto Príncipe, 1645, Porto Dourado",
+      "addressLocality": "Serra",
+      "addressRegion": "ES",
+      "postalCode": "29163-241",
+      "addressCountry": "BR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -20.128, "longitude": -40.269 },
+    "sameAs": ["https://instagram.com/tecfer.metalserra"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Estruturas Metálicas",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Galpões Metálicos" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mezaninos Metálicos" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Escadas e Passarelas Industriais" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Portões e Grades" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Coberturas Metálicas" } }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="assets/img/Logo.webp" alt="Tecfer" width="120" height="36" />
+    </a>
+    <nav class="nav-links">
+      <ul>
+        <li><a href="#produtos">PRODUTOS</a></li>
+        <li><a href="#sobre-nos">SOBRE NÓS</a></li>
+        <li><a href="#missao">NOSSA MISSÃO</a></li>
+        <li><a href="#depoimentos">DEPOIMENTOS</a></li>
+        <li><a href="#contato">CONTATO</a></li>
+      </ul>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+  <nav class="nav-mobile" id="navMobile">
+    <a href="#produtos"    class="ml">PRODUTOS</a>
+    <a href="#sobre-nos"   class="ml">SOBRE NÓS</a>
+    <a href="#missao"      class="ml">NOSSA MISSÃO</a>
+    <a href="#depoimentos" class="ml">DEPOIMENTOS</a>
+    <a href="#contato"     class="ml">CONTATO</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-top">
+    <div class="hero-tags" style="margin-bottom:18px;">
+      <span>+400 Serviços Concluídos &nbsp;·&nbsp; De Norte a Sul do Espírito Santo</span>
+    </div>
+    <h1 class="hero-title">
+      A Serralheria de <span class="verde">Confiança</span><br>
+      do Espírito Santo — <b>34 Anos,</b><br>
+      <b>Centenas de Obras</b> Entregues
+    </h1>
+    <p class="hero-sub">Projetamos, fabricamos e instalamos estruturas metálicas com precisão industrial e durabilidade comprovada. 34 anos transformando aço em segurança real.</p>
+    <div class="hero-tags">
+      <span>Galpões</span><span>Depósitos</span><span>Hangares</span>
+      <span>Armazéns</span><span>Ginásios</span><span>Pavilhões</span>
+    </div>
+    <a href="https://wa.me/5527988512252" target="_blank" class="btn">SOLICITAR ORÇAMENTO GRÁTIS</a>
+    <p class="hero-micro">Resposta em até 2h &nbsp;·&nbsp; Sem compromisso &nbsp;·&nbsp; Grátis</p>
+  </div>
+  <div class="hero-grid">
+    <!-- fetchpriority="high" na primeira imagem visível acelera o LCP -->
+    <div class="hero-cell">
+      <div class="hero-cell-inner">
+        <img src="assets/img/Galpoes.webp" alt="Galpões" fetchpriority="high" decoding="async" width="300" height="533" />
+        <div class="hero-cell-label">GALPÕES</div>
+      </div>
+    </div>
+    <div class="hero-cell">
+      <div class="hero-cell-inner">
+        <img src="assets/img/Depositos.webp" alt="Depósitos" loading="lazy" decoding="async" width="300" height="533" />
+        <div class="hero-cell-label">DEPÓSITOS</div>
+      </div>
+    </div>
+    <div class="hero-cell">
+      <div class="hero-cell-inner">
+        <img src="assets/img/Hangares.webp" alt="Hangares" loading="lazy" decoding="async" width="300" height="533" />
+        <div class="hero-cell-label">HANGARES</div>
+      </div>
+    </div>
+    <div class="hero-cell">
+      <div class="hero-cell-inner">
+        <img src="assets/img/Armazens.webp" alt="Armazéns" loading="lazy" decoding="async" width="300" height="533" />
+        <div class="hero-cell-label">ARMAZÉNS</div>
+      </div>
+    </div>
+    <div class="hero-cell">
+      <div class="hero-cell-inner">
+        <img src="assets/img/Ginasios.webp" alt="Ginásios" loading="lazy" decoding="async" width="300" height="533" />
+        <div class="hero-cell-label">GINÁSIOS</div>
+      </div>
+    </div>
+    <div class="hero-cell">
+      <div class="hero-cell-inner">
+        <img src="assets/img/Pavilhoes.webp" alt="Pavilhões" loading="lazy" decoding="async" width="300" height="533" />
+        <div class="hero-cell-label">PAVILHÕES</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section id="produtos">
+  <div class="container">
+    <div class="produtos-header reveal">
+      <div>
+        <span class="s-label">O Que Fazemos</span>
+        <h2 class="s-title">Desde a <span class="verde">Fabricação</span><br>até a <span class="verde">Instalação</span></h2>
+      </div>
+      <p class="s-text body-17" style="max-width:380px;">Na <strong>TECFER</strong>, cada produto é uma obra-prima projetada para oferecer o máximo em segurança, durabilidade e estética.<br><br><span class="verde" style="font-weight:600;">VEJA O QUE PODEMOS FAZER POR VOCÊ:</span></p>
+    </div>
+    <div class="carousel-outer reveal">
+      <div class="carousel-track" id="track">
+
+        <!-- Slide 1 — Galpões -->
+        <div class="c-slide">
+          <div class="c-img"><img src="assets/img/Galpao.webp" alt="Galpões" loading="lazy" decoding="async" width="600" height="480" /></div>
+          <div class="c-info">
+            <span class="c-eyebrow">PRODUTO 01</span>
+            <h2>CONSTRUÇÃO DE GALPÕES EM AÇO CARBONO</h2>
+            <p><span class="verde">Estruturas Sólidas:</span><br>Galpões duráveis e adaptáveis para diversas necessidades industriais, com projeto personalizado e instalação completa.</p>
+            <a href="https://wa.me/5527988512252" target="_blank" class="btn">FAZER UM ORÇAMENTO</a>
+            <div class="c-controls">
+              <button class="c-btn" data-dir="-1" aria-label="Anterior"><img src="assets/img/Prev-white.webp" alt="←" /></button>
+              <div class="c-dots" id="dots"></div>
+              <button class="c-btn" data-dir="1" aria-label="Próximo"><img src="assets/img/Next-white.webp" alt="→" /></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 — Mezaninos -->
+        <div class="c-slide">
+          <div class="c-img"><img src="assets/img/Mezaninos.webp" alt="Mezaninos" loading="lazy" decoding="async" width="600" height="480" /></div>
+          <div class="c-info">
+            <span class="c-eyebrow">PRODUTO 02</span>
+            <h2>MEZANINOS METÁLICOS</h2>
+            <p><span class="verde">Aproveitamento Máximo:</span><br>Soluções em mezanino que otimizam o espaço vertical — ideais para depósitos, escritórios e ambientes industriais.</p>
+            <a href="https://wa.me/5527988512252" target="_blank" class="btn">FAZER UM ORÇAMENTO</a>
+            <div class="c-controls">
+              <button class="c-btn" data-dir="-1" aria-label="Anterior"><img src="assets/img/Prev-white.webp" alt="←" /></button>
+              <div class="c-dots c-dots-x"></div>
+              <button class="c-btn" data-dir="1" aria-label="Próximo"><img src="assets/img/Next-white.webp" alt="→" /></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 — Escadas -->
+        <div class="c-slide">
+          <div class="c-img"><img src="assets/img/Escadas-industriais.webp" alt="Escadas" loading="lazy" decoding="async" width="600" height="480" /></div>
+          <div class="c-info">
+            <span class="c-eyebrow">PRODUTO 03</span>
+            <h2>ESCADAS E PASSARELAS INDUSTRIAIS</h2>
+            <p><span class="verde">Segurança e Design:</span><br>Escadas metálicas com corrimãos e passarelas que unem estética e segurança em qualquer ambiente.</p>
+            <a href="https://wa.me/5527988512252" target="_blank" class="btn">FAZER UM ORÇAMENTO</a>
+            <div class="c-controls">
+              <button class="c-btn" data-dir="-1" aria-label="Anterior"><img src="assets/img/Prev-white.webp" alt="←" /></button>
+              <div class="c-dots c-dots-x"></div>
+              <button class="c-btn" data-dir="1" aria-label="Próximo"><img src="assets/img/Next-white.webp" alt="→" /></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 — Portões -->
+        <div class="c-slide">
+          <div class="c-img"><img src="assets/img/Portao1.webp" alt="Portões" loading="lazy" decoding="async" width="600" height="480" /></div>
+          <div class="c-info">
+            <span class="c-eyebrow">PRODUTO 04</span>
+            <h2>PORTÕES E GRADES PERSONALIZADOS</h2>
+            <p><span class="verde">Proteção com Estilo:</span><br>Portões e grades sob medida para uso residencial e industrial com acabamento de alta qualidade.</p>
+            <a href="https://wa.me/5527988512252" target="_blank" class="btn">FAZER UM ORÇAMENTO</a>
+            <div class="c-controls">
+              <button class="c-btn" data-dir="-1" aria-label="Anterior"><img src="assets/img/Prev-white.webp" alt="←" /></button>
+              <div class="c-dots c-dots-x"></div>
+              <button class="c-btn" data-dir="1" aria-label="Próximo"><img src="assets/img/Next-white.webp" alt="→" /></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 — Coberturas -->
+        <div class="c-slide">
+          <div class="c-img"><img src="assets/img/Cobertura-de-garagem.webp" alt="Coberturas" loading="lazy" decoding="async" width="600" height="480" /></div>
+          <div class="c-info">
+            <span class="c-eyebrow">PRODUTO 05</span>
+            <h2>COBERTURAS METÁLICAS</h2>
+            <p><span class="verde">Resistência Comprovada:</span><br>Coberturas em estrutura metálica para áreas industriais, comerciais e esportivas com máxima durabilidade.</p>
+            <a href="https://wa.me/5527988512252" target="_blank" class="btn">FAZER UM ORÇAMENTO</a>
+            <div class="c-controls">
+              <button class="c-btn" data-dir="-1" aria-label="Anterior"><img src="assets/img/Prev-white.webp" alt="←" /></button>
+              <div class="c-dots c-dots-x"></div>
+              <button class="c-btn" data-dir="1" aria-label="Próximo"><img src="assets/img/Next-white.webp" alt="→" /></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 6 — BG estrutura -->
+        <div class="c-slide">
+          <div class="c-img"><img src="assets/img/BG-7.webp" alt="Estruturas Industriais" loading="lazy" decoding="async" width="600" height="480" /></div>
+          <div class="c-info">
+            <span class="c-eyebrow">PRODUTO 06</span>
+            <h2>ESTRUTURAS INDUSTRIAIS COMPLETAS</h2>
+            <p><span class="verde">Projeto Sob Medida:</span><br>Do projeto à instalação, entregamos estruturas industriais completas com suporte técnico especializado.</p>
+            <a href="https://wa.me/5527988512252" target="_blank" class="btn">FAZER UM ORÇAMENTO</a>
+            <div class="c-controls">
+              <button class="c-btn" data-dir="-1" aria-label="Anterior"><img src="assets/img/Prev-white.webp" alt="←" /></button>
+              <div class="c-dots c-dots-x"></div>
+              <button class="c-btn" data-dir="1" aria-label="Próximo"><img src="assets/img/Next-white.webp" alt="→" /></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="portfolio-ig reveal" style="text-align:center; margin-top:40px;">
+      <p style="font-size:13px; color:rgba(246,245,239,.45); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:12px;">Portfólio de Obras</p>
+      <a href="https://instagram.com/tecfer.metalserra" target="_blank" rel="noopener" class="btn btn-outline" style="display:inline-flex; align-items:center; gap:10px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        VER OBRAS NO INSTAGRAM &nbsp;@tecfer.metalserra
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona">
+  <div class="container">
+    <div class="cf-header reveal" style="text-align:center; max-width:700px; margin:0 auto 64px;">
+      <span class="s-label">Nosso Processo</span>
+      <h2 class="s-title">Da Concepção à Entrega:<br>O Padrão <span class="verde">Tecfer</span></h2>
+      <p class="s-text body-17">A execução de projetos de alta complexidade exige um rigor técnico que começa muito antes da primeira solda. Nosso método é desenhado para garantir previsibilidade e acabamento impecável.</p>
+    </div>
+    <div class="cf-steps">
+      <div class="cf-step reveal d1">
+        <div class="cf-num">01</div>
+        <div class="cf-content">
+          <h3 class="cf-title">Diagnóstico e Visita Técnica</h3>
+          <p class="cf-text">Nossos especialistas realizam uma imersão no local para coletar métricas, analisar a viabilidade estrutural e compreender a estética do ambiente.</p>
+        </div>
+      </div>
+      <div class="cf-connector" aria-hidden="true"></div>
+      <div class="cf-step reveal d2">
+        <div class="cf-num">02</div>
+        <div class="cf-content">
+          <h3 class="cf-title">Inteligência de Projeto</h3>
+          <p class="cf-text">Compilamos suas preferências e necessidades em uma proposta técnica e comercial detalhada, enviada diretamente pelo seu canal de preferência.</p>
+        </div>
+      </div>
+      <div class="cf-connector" aria-hidden="true"></div>
+      <div class="cf-step reveal d3">
+        <div class="cf-num">03</div>
+        <div class="cf-content">
+          <h3 class="cf-title">Finalização e Logística Integrada</h3>
+          <p class="cf-text">A excelência não aceita interrupções. Por isso, o tratamento de pintura de alto padrão e a entrega técnica já fazem parte do nosso compromisso em todas as obras.</p>
+        </div>
+      </div>
+    </div>
+    <div class="cf-cta reveal" style="text-align:center; margin-top:56px;">
+      <a href="https://wa.me/5527988512252" target="_blank" class="btn">INICIAR MEU PROJETO</a>
+      <p class="hero-micro" style="margin-top:12px;">Resposta em até 2h &nbsp;·&nbsp; Sem compromisso &nbsp;·&nbsp; Grátis</p>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUE A TECFER -->
+<section id="por-que">
+  <div class="container">
+    <div class="pq-layout">
+      <div class="pq-intro reveal">
+        <span class="s-label">Escolha Estratégica</span>
+        <h2 class="s-title">Por que a<br><span class="verde">Tecfer?</span></h2>
+        <p class="pq-lead">Soluções Metálicas de Alto Desempenho. A Tecfer se destaca pela inteligência de mercado, otimizando a aquisição de insumos para repassar competitividade e excelência ao cliente final.</p>
+        <div class="pq-stat-row">
+          <div class="pq-stat"><strong>34</strong><span>Anos de mercado</span></div>
+          <div class="pq-stat"><strong>+400</strong><span>Serviços concluídos</span></div>
+          <div class="pq-stat"><strong>ES</strong><span>De Norte a Sul do Estado</span></div>
+        </div>
+        <a href="https://wa.me/5527988512252" target="_blank" class="btn">SOLICITAR ORÇAMENTO GRÁTIS</a>
+      </div>
+      <div class="pq-grid">
+        <div class="pq-card reveal d1">
+          <div class="pq-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
+          </div>
+          <h3 class="pq-card-title">Versatilidade Total</h3>
+          <p class="pq-card-text">Fabricamos desde suportes de precisão — pequenas peças e mãos francesas — até estruturas metálicas monumentais. Um único fornecedor para toda a escala do seu projeto.</p>
+        </div>
+        <div class="pq-card reveal d2">
+          <div class="pq-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          </div>
+          <h3 class="pq-card-title">Segurança e Estética</h3>
+          <p class="pq-card-text">Linha completa de portões, escadas, guarda-corpos e acessos metálicos com design refinado. Proteção e sofisticação que se complementam em cada detalhe.</p>
+        </div>
+        <div class="pq-card reveal d3">
+          <div class="pq-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg>
+          </div>
+          <h3 class="pq-card-title">Logística Full-Service</h3>
+          <p class="pq-card-text">Esqueça surpresas com transporte ou acabamento. Nossas soluções já contemplam pintura técnica e entrega no local da obra — sem terceiros, sem imprevistos.</p>
+        </div>
+        <div class="pq-card reveal d4">
+          <div class="pq-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+          </div>
+          <h3 class="pq-card-title">Foco em Qualidade Real</h3>
+          <p class="pq-card-text">Atuamos com o melhor custo-benefício médio da região, sem abrir mão do rigor técnico que grandes projetos exigem. Inteligência na compra, excelência na entrega.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE NÓS -->
+<section id="sobre-nos">
+  <div class="container">
+    <div class="sobre-grid">
+
+      <div class="sobre-col-tecfer reveal">
+        <span class="s-label">Quem Somos</span>
+        <h2 class="s-title"><span class="verde">Tecfer</span></h2>
+        <p class="s-text body-17">Com 34 anos de tradição e excelência no mercado de fabricações metálicas, a <span class="verde">TECFER</span> é referência em qualidade, inovação e confiabilidade. Desde nossa fundação, temos nos dedicado a fornecer soluções robustas e personalizadas para atender às necessidades de nossos clientes, seja no setor industrial ou residencial.</p>
+        <div class="sobre-fotos">
+          <div class="sobre-foto">
+            <div class="sobre-foto-inner">
+              <img src="assets/img/Sobre-nos.webp" alt="Tecfer equipe" loading="lazy" decoding="async" width="400" height="500" />
+            </div>
+          </div>
+          <div class="sobre-foto">
+            <div class="sobre-foto-inner">
+              <img src="assets/img/Sobre-nos-Estruturas-metalicas.webp" alt="Estruturas" loading="lazy" decoding="async" width="400" height="500" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sobre-col-teodoro reveal d2">
+        <div class="sobre-col-teodoro-text">
+          <span class="s-label">Não negociamos estruturas.<br>Entregamos segurança para quem não pode errar.</span>
+          <h2 class="s-title"><span class="verde">Último&nbsp;Teodoro</span></h2>
+        </div>
+        <div class="teodoro-inner">
+          <div class="t-foto-col-left">
+            <div class="t-foto-main">
+              <div class="t-foto-main-inner">
+                <img src="assets/img/Seu-Ultimo-Teodoro.webp" alt="Seu Último Teodoro" loading="lazy" decoding="async" width="400" height="533" />
+              </div>
+            </div>
+            <div class="t-foto-overlay">
+              <div class="t-foto-overlay-inner">
+                <img src="assets/img/Seu-Ultimo-na-serralheria.webp" alt="Seu Último na serralheria" loading="lazy" decoding="async" width="246" height="131" />
+              </div>
+            </div>
+          </div>
+          <div class="t-content">
+            <p class="body-17">Uma vida inteira dedicada ao aço, à precisão e à confiança.<br>Um profissional cuja trajetória se incorpora à história da serralheria em nossa região. Considerado a maior referência no setor, o Sr. Ultimo possui um conhecimento técnico inigualável, capaz de executar com maestria qualquer serviço de serralheria, desde os mais simples até os mais complexos projetos pelo simples fato de sua paixão pelo que faz ser inabalável!</p>
+            <p class="body-17">Transforma clientes em amigos e com a virtude da reciprocidade, crescem a confiança e o respeito entre todos que têm a oportunidade de trabalhar com ele, tomando aquele cafezinho no fim do dia enquanto ele recolhe e guarda as ferramentas no carro.</p>
+          </div>
+          <div class="t-foto-col-right">
+            <div class="t-foto-side">
+              <div class="t-foto-side-inner">
+                <img src="assets/img/Seu-Ultimo-Teodoro-criando-um-galpao.webp" alt="Seu Último criando um galpão" loading="lazy" decoding="async" width="180" height="400" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="diretoria-wrap reveal">
+      <span class="s-label">Liderança</span>
+      <h2 class="s-title">Conheça a <span class="verde">Diretoria</span></h2>
+      <p class="s-text body-17">A <span class="verde">TECFER</span> trabalha em parceria com engenheiros, técnicos em segurança no trabalho, projetistas, arquitetos, designers de interiores e encarregados de Produtos.</p>
+      <div class="diretoria-grid">
+        <div class="dir-card reveal d2"><div class="dir-avatar"><img src="assets/img/ultimo.png" alt="Último Teodoro" width="60" height="60" loading="lazy" decoding="async" /></div><h3>Último Teodoro</h3><p>Sócio-Fundador</p></div>
+        <div class="dir-card reveal d1"><div class="dir-avatar"><img src="assets/img/mara.png" alt="Mara Costa" width="60" height="60" loading="lazy" decoding="async" /></div><h3>Mara Costa</h3><p>RH / ADMIN</p></div>
+        <div class="dir-card reveal d3"><div class="dir-avatar"><img src="assets/img/tiele.png" alt="Ultiele Nunes" width="60" height="60" loading="lazy" decoding="async" /></div><h3>Ultiele Nunes</h3><p>Financeiro</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSÃO -->
+<section id="missao">
+  <div class="container">
+    <div class="missao-grid">
+      <div class="reveal">
+        <span class="s-label">Nossa Missão</span>
+        <p class="missao-stmt">A missão da</p>
+        <span class="missao-big">TECFER→</span>
+        <div class="missao-divider"></div>
+        <p class="missao-stmt"><span class="verde">Proporcionar soluções</span> inteligentes e inovadoras, assegurando a máxima satisfação e confiança em nossos produtos e serviços.</p>
+      </div>
+      <div class="reveal d2">
+        <span class="s-label">Nossos Diferenciais</span>
+        <p style="font-family:var(--fT);font-size:16px;color:rgba(246,245,239,.6);margin-bottom:24px;">Com a <span class="verde">TECFER</span> você tem:</p>
+        <div class="dif-grid">
+          <div class="dif-card"><div class="dif-num">01</div><h4>Experiência</h4><p>Mais de três décadas de atuação e conhecimento aprofundado.</p></div>
+          <div class="dif-card"><div class="dif-num">02</div><h4>Atendimento Personalizado</h4><p>Soluções sob medida para cada cliente.</p></div>
+          <div class="dif-card"><div class="dif-num">03</div><h4>Inovação Constante</h4><p>Tecnologia e métodos avançados para melhorar produtos e processos.</p></div>
+          <div class="dif-card"><div class="dif-num">04</div><h4>Qualidade Superior</h4><p>Materiais de alta qualidade e rigorosos padrões de fabricação.</p></div>
+          <div class="dif-card full"><div class="dif-num">05</div><h4>Compromisso com a Satisfação</h4><p>Foco total na satisfação do cliente desde o primeiro contato até o pós-venda.</p></div>
+        </div>
+        <div class="missao-logo"><img src="assets/img/Logo-2.webp" alt="Tecfer" loading="lazy" decoding="async" width="160" height="56" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS + CLIENTES -->
+<section id="depoimentos">
+  <div class="container">
+    <div class="reveal">
+      <span class="s-label">O Que Dizem</span>
+      <h2 class="s-title" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+        Avaliações
+        <span class="google-badge">
+          <svg width="14" height="14" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+          <span>Google</span>
+        </span>
+      </h2>
+      <p class="s-text">Veja <span class="verde">o que nossos clientes estão falando</span> sobre nossos produtos e atendimento.</p>
+    </div>
+    <div class="depo-grid">
+      <div class="depo-card reveal d1">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Fiz o portão e as grades da minha casa com a Tecfer e fiquei impressionada com o resultado. O Seu Último entendeu exatamente o que eu queria, sem enrolação. Acabamento perfeito, prazo cumprido e o preço justo. Já indiquei pra vizinhança."</p>
+        <div class="depo-author">Adacimar Aguiar Rodrigues</div>
+        <div class="depo-role">Cliente residencial &nbsp;·&nbsp; <a href="https://instagram.com/adicimaraguiar" target="_blank" rel="noopener" style="color:var(--verde);font-weight:600;">@adicimaraguiar</a></div>
+      </div>
+      <div class="depo-card reveal d2">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Contratei a Tecfer para fazer a estrutura metálica da varanda do escritório. O trabalho foi impecável — soldagem limpa, nivelamento preciso e a equipe deixou tudo organizado ao final. É o tipo de parceiro que você guarda o contato e já pensa no próximo projeto."</p>
+        <div class="depo-author">Welderson Silva</div>
+        <div class="depo-role">WR Contabilidade &nbsp;·&nbsp; <a href="https://instagram.com/wrcontabilidade.es" target="_blank" rel="noopener" style="color:var(--verde);font-weight:600;">@wrcontabilidade.es</a></div>
+      </div>
+      <div class="depo-card reveal d3">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Parceria consolidada em obras de grande porte. A Tecfer entregou os portões industriais para o projeto da Vale dentro do prazo e com toda a documentação técnica em ordem. Profissionalismo do início ao fim — é referência no segmento metálico do ES."</p>
+        <div class="depo-author">FAL Construtora</div>
+        <div class="depo-role">Construtora &nbsp;·&nbsp; <a href="https://instagram.com/alconstrutora" target="_blank" rel="noopener" style="color:var(--verde);font-weight:600;">@alconstrutora</a></div>
+      </div>
+    </div>
+    <div class="cta-banner reveal">
+      <p><span>Clique</span> no <span>botão ao lado</span> e faça um orçamento sem compromisso. Nossa equipe está pronta para atender você!</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+        <a href="https://wa.me/5527988512252" target="_blank" class="btn" style="white-space:nowrap;">FAZER UM ORÇAMENTO</a>
+        <button class="btn-google-reviews" id="btnOpenReviews" aria-label="Ver avaliações no Google">
+          <svg width="18" height="18" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+          <span>Ver avaliações</span>
+          <span class="gr-stars-mini">★★★★★</span>
+          <span class="gr-score-mini">5,0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL GOOGLE REVIEWS -->
+    <div id="reviewsModal" class="gr-overlay" role="dialog" aria-modal="true" aria-label="Avaliações Google">
+      <div class="gr-modal">
+        <div class="gr-header">
+          <div class="gr-header-left">
+            <svg class="gr-logo" width="72" height="24" viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#EA4335" d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
+              <path fill="#FBBC05" d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
+              <path fill="#4285F4" d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z"/>
+              <path fill="#34A853" d="M225 3v65h-9.5V3h9.5z"/>
+              <path fill="#EA4335" d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z"/>
+              <path fill="#4285F4" d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.5-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.48 5.1-11.69l-22.49.05z"/>
+            </svg>
+            <div>
+              <p class="gr-business">Tecfer Serralheria</p>
+              <p class="gr-address">Av. Porto Príncipe, 1645 — Serra-ES</p>
+            </div>
+          </div>
+          <button class="gr-close" id="btnCloseReviews" aria-label="Fechar">✕</button>
+        </div>
+        <div class="gr-score-block">
+          <span class="gr-big-score">5,0</span>
+          <div>
+            <div class="gr-stars-full">★★★★★</div>
+            <p class="gr-total">8 avaliações no Google</p>
+          </div>
+          <a href="https://www.google.com/maps/place/TECFER+SERRALHERIA+-+%C3%9ALTIMO+TEODORO/@-20.1464482,-40.2356519,17z/data=!4m16!1m7!3m6!1s0xb8192e818e6c99:0xd8d972d93b321d73!2sTECFER+SERRALHERIA+-+%C3%9ALTIMO+TEODORO!8m2!3d-20.1464482!4d-40.233077!16s%2Fg%2F1tg4mmhc!3m7!1s0xb8192e818e6c99:0xd8d972d93b321d73!8m2!3d-20.1464482!4d-40.233077!9m1!1b1!16s%2Fg%2F1tg4mmhc?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="gr-avaliar-btn">Avaliar</a>
+        </div>
+        <div class="gr-divider"></div>
+        <div class="gr-reviews-list">
+          <div class="gr-review">
+            <div class="gr-reviewer-row">
+              <div class="gr-avatar" style="background:#1a73e8;">J</div>
+              <div><p class="gr-reviewer">Jose Roberto Fontes</p><p class="gr-meta">3 avaliações · 1 foto</p></div>
+            </div>
+            <div class="gr-review-stars-row"><span class="gr-stars">★★★★★</span><span class="gr-when">um ano atrás</span></div>
+            <p class="gr-review-text">Atendimento de boa qualidade, indico o serviço.</p>
+          </div>
+          <div class="gr-review">
+            <div class="gr-reviewer-row">
+              <div class="gr-avatar" style="background:#34a853;">M</div>
+              <div><p class="gr-reviewer">Maria Silva</p><p class="gr-meta">1 avaliação</p></div>
+            </div>
+            <div class="gr-review-stars-row"><span class="gr-stars">★★★★★</span><span class="gr-when">há 8 meses</span></div>
+            <p class="gr-review-text">Serviço de qualidade nota 10. Equipe muito profissional e pontual.</p>
+          </div>
+          <div class="gr-review">
+            <div class="gr-reviewer-row">
+              <div class="gr-avatar" style="background:#ea4335;">C</div>
+              <div><p class="gr-reviewer">Carlos Mendes</p><p class="gr-meta">2 avaliações</p></div>
+            </div>
+            <div class="gr-review-stars-row"><span class="gr-stars">★★★★★</span><span class="gr-when">há 6 meses</span></div>
+            <p class="gr-review-text">Excelente trabalho de qualidade. Recomendo a todos!</p>
+          </div>
+        </div>
+        <div class="gr-footer">
+          <a href="https://www.google.com/maps/place/TECFER+SERRALHERIA+-+%C3%9ALTIMO+TEODORO/@-20.1464482,-40.2356519,17z/data=!4m16!1m7!3m6!1s0xb8192e818e6c99:0xd8d972d93b321d73!2sTECFER+SERRALHERIA+-+%C3%9ALTIMO+TEODORO!8m2!3d-20.1464482!4d-40.233077!16s%2Fg%2F1tg4mmhc!3m7!1s0xb8192e818e6c99:0xd8d972d93b321d73!8m2!3d-20.1464482!4d-40.233077!9m1!1b1!16s%2Fg%2F1tg4mmhc?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="gr-ver-todos">
+            Ver todos os comentários no Google
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="clientes-header">
+        <h3>Conheça alguns de nossos <span class="verde">Clientes</span></h3>
+      </div>
+      <div class="clientes-scroll">
+        <div class="clientes-track">
+          <div class="cl-logo"><img src="assets/img/Samarco.webp"            alt="Samarco"         loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/Le-engenharia.webp"      alt="LE Engenharia"   loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/Arcelor-Mittal.webp"     alt="ArcelorMittal"   loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/Construtora.webp"        alt="Construtora"     loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/Sesc1-1.webp"            alt="SESC"            loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/Servip-seguranca.webp"   alt="Servip"          loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/Impacto-condominio.webp" alt="Impacto"         loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/Mormaii.webp"            alt="Mormaii"         loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/SP-ENGENHARIA.webp"      alt="SP Engenharia"   loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/SUZANO1.webp"            alt="Suzano"          loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/VALE.webp"               alt="Vale"            loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/FAL-CONSTRUTORA11.webp"  alt="FAL Construtora" loading="lazy" decoding="async" width="120" height="44" /></div>
+          <!-- duplicado para loop -->
+          <div class="cl-logo"><img src="assets/img/Samarco.webp"            alt="Samarco"         loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/Le-engenharia.webp"      alt="LE Engenharia"   loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/Arcelor-Mittal.webp"     alt="ArcelorMittal"   loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/Construtora.webp"        alt="Construtora"     loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/Sesc1-1.webp"            alt="SESC"            loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/Servip-seguranca.webp"   alt="Servip"          loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/Impacto-condominio.webp" alt="Impacto"         loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/Mormaii.webp"            alt="Mormaii"         loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/SP-ENGENHARIA.webp"      alt="SP Engenharia"   loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/SUZANO1.webp"            alt="Suzano"          loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/VALE.webp"               alt="Vale"            loading="lazy" decoding="async" width="120" height="44" /></div>
+          <div class="cl-logo"><img src="assets/img/FAL-CONSTRUTORA11.webp"  alt="FAL Construtora" loading="lazy" decoding="async" width="120" height="44" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="reveal">
+        <span class="s-label">Dúvidas</span>
+        <h2 class="s-title"><span class="verde">Perguntas</span><br>Frequentes</h2>
+        <p class="faq-aside">Veja ao lado algumas dúvidas frequentes de nossos clientes. Não encontrou o que procura? Entre em contato!</p>
+        <a href="https://wa.me/5527988512252" target="_blank" class="btn btn-outline">FALAR CONOSCO</a>
+      </div>
+      <div class="faq-list reveal d2">
+        <div class="faq-item open">
+          <button class="faq-btn"><span>Quais tipos de produtos a TECFER oferece?</span><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 12 12"><path d="M4.62 0.98L8.54 4.9H0V6.3H8.54L4.62 10.22L5.6 11.2L11.2 5.6L5.6 0L4.62 0.98Z" fill="#F6F5EF"/></svg></div></button>
+          <div class="faq-answer"><p>Oferecemos uma ampla gama de produtos metálicos, incluindo portões, grades, corrimãos, guarda-corpos, escadas, mezaninos, coberturas e galpões.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn"><span>A TECFER trabalha com projetos personalizados?</span><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 12 12"><path d="M4.62 0.98L8.54 4.9H0V6.3H8.54L4.62 10.22L5.6 11.2L11.2 5.6L5.6 0L4.62 0.98Z" fill="#F6F5EF"/></svg></div></button>
+          <div class="faq-answer"><p>Sim, cada projeto é tratado de forma única, com soluções sob medida para atender às necessidades específicas de cada cliente.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn"><span>Qual é o prazo de entrega dos produtos?</span><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 12 12"><path d="M4.62 0.98L8.54 4.9H0V6.3H8.54L4.62 10.22L5.6 11.2L11.2 5.6L5.6 0L4.62 0.98Z" fill="#F6F5EF"/></svg></div></button>
+          <div class="faq-answer"><p>O prazo de entrega varia conforme o tipo e a complexidade do projeto. Entre em contato para obter um prazo estimado para o seu pedido.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn"><span>A TECFER oferece manutenção para os produtos fabricados?</span><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 12 12"><path d="M4.62 0.98L8.54 4.9H0V6.3H8.54L4.62 10.22L5.6 11.2L11.2 5.6L5.6 0L4.62 0.98Z" fill="#F6F5EF"/></svg></div></button>
+          <div class="faq-answer"><p>Sim, oferecemos serviços de manutenção para garantir a durabilidade e a segurança de nossos produtos.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn"><span>Como posso obter um orçamento?</span><div class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 12 12"><path d="M4.62 0.98L8.54 4.9H0V6.3H8.54L4.62 10.22L5.6 11.2L11.2 5.6L5.6 0L4.62 0.98Z" fill="#F6F5EF"/></svg></div></button>
+          <div class="faq-answer"><p>Entre em contato conosco através do telefone, e-mail ou WhatsApp para discutir seu projeto e obter um orçamento personalizado.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="container">
+    <div class="contato-intro reveal">
+      <span class="s-label">Fale Conosco</span>
+      <h2 class="s-title">Contato</h2>
+      <p class="s-text body-17">Se você procura soluções metálicas de confiança e alta qualidade, a <strong>TECFER</strong> é a escolha certa. Entre em contato para transformar suas ideias em realidade.</p>
+    </div>
+    <div class="contato-grid">
+      <div class="reveal">
+        <div class="c-item">
+          <div class="c-icon"><img src="assets/img/Telefone.webp" alt="Telefone" width="20" height="20" /></div>
+          <div class="c-text"><strong>Telefone</strong><a href="tel:+5527988512252">(27) 988512252</a></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><img src="assets/img/E-mail.webp" alt="E-mail" width="20" height="20" /></div>
+          <div class="c-text"><strong>E-mail</strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="86e5e9ebe3f4e5efe7eac6e0e7e4f4e7eaeaa8e5e9eba8e4f4">[email&#160;protected]</a></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><img src="assets/img/Endereco.webp" alt="Endereço" width="20" height="20" /></div>
+          <div class="c-text"><strong>Endereço</strong>Av Porto Príncipe, 1645, Porto Dourado,<br>Serra-ES — CEP 29163-241.</div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><img src="assets/img/whatsapp.svg" alt="WhatsApp" width="20" height="20" /></div>
+          <div class="c-text"><strong>WhatsApp</strong><a href="https://wa.me/5527988512252" target="_blank">(27) 98851-2252</a></div>
+        </div>
+        <a href="https://wa.me/5527988512252" target="_blank" class="btn" style="margin-top:8px;">FAZER UM ORÇAMENTO</a>
+      </div>
+      <div class="map-box reveal d2">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.8!2d-40.269!3d-20.128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDA3JzQwLjgiUyA0MMKwMTYnMDguNCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Tecfer — Serra-ES"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="assets/img/Logo.webp" alt="Tecfer" width="120" height="32" /></div>
+        <p class="footer-desc">Fabricação e Montagem de Estruturas Metálicas. 34 anos de tradição, qualidade e confiabilidade em Serra-ES.</p>
+        <a href="https://wa.me/5527988512252" target="_blank" class="btn" style="font-size:11px;padding:12px 28px;">ORÇAMENTO GRÁTIS</a>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#sobre-nos">Sobre Nós</a></li>
+          <li><a href="#missao">Nossa Missão</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Produtos</h4>
+        <ul>
+          <li><a href="#produtos">Galpões</a></li>
+          <li><a href="#produtos">Mezaninos</a></li>
+          <li><a href="#produtos">Escadas e Passarelas</a></li>
+          <li><a href="#produtos">Portões e Grades</a></li>
+          <li><a href="#produtos">Coberturas Metálicas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 <a href="#">Tecfer Serralheria – Esquadrias Metálicas</a>. Todos os direitos reservados.</p>
+      <p class="footer-copy">Serra-ES &nbsp;·&nbsp; (27) 98851-2252</p>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+/* ── Navbar ──────────────────────────────────────────── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 48);
+}, { passive: true });
+
+/* ── Burger ──────────────────────────────────────────── */
+const burger    = document.getElementById('burger');
+const navMobile = document.getElementById('navMobile');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open');
+  navMobile.classList.toggle('open');
+});
+document.querySelectorAll('.ml').forEach(a =>
+  a.addEventListener('click', () => {
+    burger.classList.remove('open');
+    navMobile.classList.remove('open');
+  })
+);
+
+/* ── Carrossel ───────────────────────────────────────── */
+(function () {
+  const track  = document.getElementById('track');
+  const slides = track.querySelectorAll('.c-slide');
+  const total  = slides.length;
+  let cur = 0, timer;
+
+  function makeDots(container) {
+    for (let i = 0; i < total; i++) {
+      const b = document.createElement('button');
+      b.className = 'c-dot' + (i === 0 ? ' on' : '');
+      b.setAttribute('aria-label', 'Slide ' + (i + 1));
+      b.addEventListener('click', () => goTo(i));
+      container.appendChild(b);
+    }
+  }
+
+  makeDots(document.getElementById('dots'));
+  document.querySelectorAll('.c-dots-x').forEach(makeDots);
+
+  function syncDots() {
+    document.querySelectorAll('.c-dot').forEach((d, i) => {
+      d.classList.toggle('on', i % total === cur);
+    });
+  }
+
+  function goTo(idx) {
+    cur = (idx + total) % total;
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    syncDots();
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(cur + 1), 5000);
+  }
+
+  document.querySelectorAll('.c-btn[data-dir]').forEach(btn =>
+    btn.addEventListener('click', () => goTo(cur + Number(btn.dataset.dir)))
+  );
+
+  let tx = 0;
+  track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => {
+    const d = tx - e.changedTouches[0].clientX;
+    if (Math.abs(d) > 50) goTo(cur + (d > 0 ? 1 : -1));
+  });
+
+  resetTimer();
+})();
+
+/* ── FAQ ─────────────────────────────────────────────── */
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item   = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+/* ── Google Reviews Modal ────────────────────────────── */
+(function () {
+  const overlay  = document.getElementById('reviewsModal');
+  const btnOpen  = document.getElementById('btnOpenReviews');
+  const btnClose = document.getElementById('btnCloseReviews');
+
+  function openModal() {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    btnClose.focus();
+  }
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    btnOpen.focus();
+  }
+
+  btnOpen.addEventListener('click', openModal);
+  btnClose.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
+})();
+
+/* ── Scroll Reveal ───────────────────────────────────── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
